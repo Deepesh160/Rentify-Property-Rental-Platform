@@ -1,0 +1,92 @@
+<% layout("/layouts/boilerplate")%>
+
+<div class="container">
+    <div class="form-container">
+        <div class="text-center mb-4">
+            <i class="fa-solid fa-user-plus fa-3x text-primary mb-3"></i>
+            <h2 class="fw-bold">Create Account</h2>
+            <p class="text-muted">Join Rentify and start listing your properties</p>
+        </div>
+
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <div class="mb-4">
+                <label for="username" class="form-label">
+                    <i class="fa-solid fa-user me-2"></i>Username
+                </label>
+                <input
+                    name="username"
+                    id="username"
+                    type="text"
+                    class="form-control"
+                    placeholder="Choose a username"
+                    required
+                    autofocus
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please choose a username.</div>
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="form-label">
+                    <i class="fa-solid fa-envelope me-2"></i>Email
+                </label>
+                <input
+                    name="email"
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email address"
+                    required
+                />
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="form-label">
+                    <i class="fa-solid fa-lock me-2"></i>Password
+                </label>
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    class="form-control"
+                    placeholder="Create a strong password"
+                    required
+                    minlength="6"
+                />
+                <div class="form-text">Password must be at least 6 characters long.</div>
+                <div class="invalid-feedback">Please enter a password (minimum 6 characters).</div>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fa-solid fa-user-plus me-2"></i>Sign Up
+                </button>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="text-muted">
+                    Already have an account? 
+                    <a href="/login" class="text-primary fw-bold">Login here</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
